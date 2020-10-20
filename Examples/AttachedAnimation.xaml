@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:animation="clr-namespace:Xamarin.X247Grad.Animation;assembly=Xamarin.X247Grad.Animation"
+             xmlns:behaviors="clr-namespace:Xamarin.X247Grad.Animation.Behaviors;assembly=Xamarin.X247Grad.Animation"
+             x:Class="Xamarin.X247Grad.Animation.Examples.AttachedAnimation"
+             Appearing="PlayAnimation">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Hello, world!"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand">
+                <Label.Behaviors>
+                    <!-- Attached animation, uses the attached visual element to determine the animation target. -->
+                    <behaviors:AttachAnimation x:Name="AttachAnimation">
+                        <!-- Simple animation, see SimpleAnimation.xaml for more details. -->
+                        <animation:AnimationSet>
+                            <animation:AnimationStop Length="0">
+                                <Setter Property="Label.ScaleY">0</Setter>
+                            </animation:AnimationStop>
+
+                            <animation:AnimationStop Length="2000"
+                                                     Easing="{x:Static Easing.CubicOut}"
+                                                     Rate="10">
+                                <Setter Property="Label.ScaleY">1</Setter>
+                            </animation:AnimationStop>
+                        </animation:AnimationSet>
+                    </behaviors:AttachAnimation>
+                </Label.Behaviors>
+            </Label>
+            <Button Clicked="PlayAnimation" Text="Replay" Margin="50" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

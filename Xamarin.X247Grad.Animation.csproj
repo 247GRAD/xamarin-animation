@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Xamarin.Forms" Version="4.8.0.1560" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Examples\AttachedAnimation.xaml" />
+      <None Include="Examples\AttachedAnimation.xaml">
+        <SubType>Designer</SubType>
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </None>
+      <Compile Remove="Examples\AttachedAnimation.xaml.cs" />
+      <None Include="Examples\AttachedAnimation.xaml.cs">
+        <DependentUpon>AttachedAnimation.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </None>
+      <EmbeddedResource Remove="Examples\ParallelAnimation.xaml" />
+      <None Include="Examples\ParallelAnimation.xaml">
+        <SubType>Designer</SubType>
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </None>
+      <Compile Remove="Examples\ParallelAnimation.xaml.cs" />
+      <None Include="Examples\ParallelAnimation.xaml.cs">
+        <DependentUpon>ParallelAnimation.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </None>
+      <EmbeddedResource Remove="Examples\SimpleAnimation.xaml" />
+      <None Include="Examples\SimpleAnimation.xaml">
+        <SubType>Designer</SubType>
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </None>
+      <Compile Remove="Examples\SimpleAnimation.xaml.cs" />
+      <None Include="Examples\SimpleAnimation.xaml.cs">
+        <DependentUpon>SimpleAnimation.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </None>
+    </ItemGroup>
+</Project>

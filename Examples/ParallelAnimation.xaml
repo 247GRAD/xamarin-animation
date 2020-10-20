@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:animation="clr-namespace:Xamarin.X247Grad.Animation;assembly=Xamarin.X247Grad.Animation"
+             x:Class="Xamarin.X247Grad.Animation.Examples.ParallelAnimation"
+             Appearing="PlayAnimations">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Parallel animation set of translation and color. -->
+            <animation:AnimationSets x:Name="Animations" x:Key="Animations">
+                <!-- Animate text color, delay for a bit. -->
+                <animation:AnimationSet>
+                    <animation:AnimationStop Length="0">
+                        <Setter Property="Label.TextColor">Black</Setter>
+                    </animation:AnimationStop>
+                    
+                    <!-- Hold off the animation for a second. -->
+                    <animation:AnimationStop Length="1000" />
+                    
+                    <animation:AnimationStop Length="2000"
+                                             Easing="{x:Static Easing.CubicOut}"
+                                             Rate="10">
+                        <Setter Property="Label.TextColor">Red</Setter>
+                    </animation:AnimationStop>
+                </animation:AnimationSet>
+
+                <!-- Second animation set, played in parallel with the first one. -->
+                <animation:AnimationSet>
+                    <animation:AnimationStop Length="0">
+                        <Setter Property="Label.TranslationX">-800</Setter>
+                    </animation:AnimationStop>
+                    <animation:AnimationStop Length="1750"
+                                             Easing="{x:Static Easing.CubicOut}"
+                                             Rate="10">
+                        <Setter Property="Label.TranslationX">0</Setter>
+                    </animation:AnimationStop>
+                </animation:AnimationSet>
+            </animation:AnimationSets>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="Label" Text="Hello, world!"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand" />
+            <Button Clicked="PlayAnimations" Text="Replay" Margin="50" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:animation="clr-namespace:Xamarin.X247Grad.Animation;assembly=Xamarin.X247Grad.Animation"
+             x:Class="Xamarin.X247Grad.Animation.Examples.SimpleAnimation"
+             Appearing="PlayAnimation">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- A simple set animating the scale of the label from zero to one over two seconds.-->
+            <animation:AnimationSet x:Name="Animation" x:Key="Animation">
+                <!-- First stop, immediately sets the scale to zero. -->
+                <animation:AnimationStop Length="0">
+                    <Setter Property="Label.ScaleY">0</Setter>
+                </animation:AnimationStop>
+
+                <!-- Second stop. Over two seconds (length is given in milliseconds), animates the scale to one. -->
+                <!-- Easing can be statically referenced or left empty, which has the same effect as not passing -->
+                <!-- an easing in code. The rate will default to 16 milliseconds, if it should be higher, for example -->
+                <!-- when running on high Hertz devices, this can be given here. -->
+                <animation:AnimationStop Length="2000"
+                                         Easing="{x:Static Easing.CubicOut}"
+                                         Rate="10">
+                    <Setter Property="Label.ScaleY">1</Setter>
+                </animation:AnimationStop>
+            </animation:AnimationSet>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="Label" Text="Hello, world!"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand" />
+            <Button Clicked="PlayAnimation" Text="Replay" Margin="50" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
