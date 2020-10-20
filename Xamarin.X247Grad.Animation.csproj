@@ -2,6 +2,16 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
+        <Title>247GRAD Xamarin XAML Animation Tools</Title>
+        <Authors>247GRAD</Authors>
+        <Description>This project provides animation classes that can be used to define animations based on stops and Xamarin setters.</Description>
+        <Copyright>© 2020 247GRAD</Copyright>
+        <PackageProjectUrl>https://github.com/247GRAD/xamarin-animation</PackageProjectUrl>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/247GRAD/xamarin-animation/master/LICENSE</PackageLicenseUrl>
+        <PackageIconUrl>https://avatars3.githubusercontent.com/u/73173192?s=400&amp;u=f1976eb27839f44ae4062c3ee63c4d04a324cf6c&amp;v=4</PackageIconUrl>
+        <RepositoryUrl>https://github.com/247GRAD/xamarin-animation</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>xamarin;animation;portable;xaml</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
