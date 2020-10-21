@@ -1,6 +1,3 @@
-# xamarin-animation
-Repository of the Xamarin.X247Grad.Animation NuGet package
-
 # Installation
 
 Include the package in your Portable Code.
